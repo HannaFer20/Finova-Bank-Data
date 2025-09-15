@@ -1,1 +1,164 @@
-<p>credit-approvals works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finova Bank - Dashboard</title>
+  <link rel="stylesheet" href="credit-approvals.css">
+  <style>
+    /* ==== Tabla estilo gridview ==== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    thead {
+      background: #f4f6fb;
+      text-align: left;
+    }
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+    }
+    tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    .status-active {
+      color: green;
+      font-weight: bold;
+    }
+    .status-canceled {
+      color: red;
+      font-weight: bold;
+    }
+    .action-icons {
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .action-icons i {
+      font-size: 18px;
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 8px;
+    }
+    .pagination button {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #f4f6fb;
+    }
+    .pagination button.active {
+      background: #3b82f6;
+      color: white;
+    }
+  </style>
+  <!-- Iconos de edición y borrar -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Barra superior -->
+  <header class="topbar">
+    <img src="Public/Finova Bank Logo Blanco.png" alt="Logo Finova" class="logo">
+    <span class="welcome">Welcome @Axel</span>
+    <img src="Public/axel.jpg" alt="User Profile" class="profile-pic">
+  </header>
+
+  <div class="container">
+    <!-- Menú lateral -->
+    <nav class="sidebar">
+      <button class="menu-item" onclick="window.location.href='manager-layout/my-account'">
+        <img src="Public/Finova Bank.png" alt="My Account Icon"> My account
+      </button>
+      <button class="menu-item" onclick="window.location.href='manager-layout/total-clients'">
+        <img src="Public/customer.png" alt="Clients Icon"> Total clients
+      </button>
+      <button class="menu-item" onclick="window.location.href='manager-layout/transactions'">
+        <img src="Public/give-money.png" alt="Transactions Icon"> Transactions
+      </button>
+      <button class="menu-item" onclick="window.location.href='manager-layout-loan-request'">
+        <img src="Public/contract.png" alt="Loan Icon"> Loan request
+      </button>
+      <button class="menu-item active">
+        <img src="Public/credit-card-active.png" alt="Credits Icon"> Credits Approvals
+      </button>
+      <button class="menu-item" onclick="window.location.href='manager-layout/alerts'">
+        <img src="Public/bell.png" alt="Alerts Icon"> Alerts
+      </button>
+      <button class="menu-item" onclick="window.location.href='manager-layout/reports'">
+        <img src="Public/bar-chart.png" alt="Reports Icon"> Reports
+      </button>
+      <button class="menu-item" onclick="window.location.href=''">
+        <img src="Public/log-out.png" alt="Sign Out Icon"> Sign Out
+      </button>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="content">
+      <h2>Total Clients</h2>
+
+      <!-- Tabla tipo GridView -->
+      <table>
+        <thead>
+          <tr>
+            <th>Client ID</th>
+            <th>Name</th>
+            <th>Account Type</th>
+            <th>Balance</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#20462</td>
+            <td>John Smith</td>
+            <td>Savings</td>
+            <td>$4.95</td>
+            <td class="status-active">Active</td>
+            <td>
+              <div class="action-icons">
+                <i class="fas fa-edit" style="color:#3b82f6;"></i>
+                <i class="fas fa-trash" style="color:#ef4444;"></i>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>#17188</td>
+            <td>Hanna Fernandez</td>
+            <td>Savings</td>
+            <td>$22.95</td>
+            <td class="status-canceled">Canceled</td>
+            <td>
+              <div class="action-icons">
+                <i class="fas fa-edit" style="color:#3b82f6;"></i>
+                <i class="fas fa-trash" style="color:#ef4444;"></i>
+              </div>
+            </td>
+          </tr>
+          <!-- Puedes agregar más filas aquí -->
+        </tbody>
+      </table>
+
+      <!-- Paginación -->
+      <div class="pagination">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
+    </main>
+  </div>
+  <!-- Footer -->
+<footer class="footer">
+</footer>
+</body>
+</html>
+

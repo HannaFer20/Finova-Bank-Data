@@ -12,16 +12,18 @@ import { Transactions } from './pages/manager/transactions/transactions';
 export const routes: Routes = [
   { path: '', component: LoginManager },
 
-  { path: 'manager-layout', 
+  {
+    path: 'manager-layout',
     component: ManagerLayout,
     children: [
-      {path: 'alerts', component: Alerts},
-      {path: 'credit-approvals', component: CreditApprovals},
-      {path: 'loan-request', component: LoanRequest},
-      {path: 'my-account', component: MyAccount},
-      {path: 'reports', component: Reports},
-      {path: 'total-clients', component: TotalClients},
-      {path: 'transactions', component: Transactions}
+      { path: '', redirectTo: 'my-account', pathMatch: 'full' }, 
+      { path: 'alerts', component: Alerts },
+      { path: 'credit-approvals', component: CreditApprovals },
+      { path: 'loan-request', component: LoanRequest },
+      { path: 'my-account', component: MyAccount },
+      { path: 'reports', component: Reports },
+      { path: 'total-clients', component: TotalClients },
+      { path: 'transactions', component: Transactions }
     ]
   }
 ];

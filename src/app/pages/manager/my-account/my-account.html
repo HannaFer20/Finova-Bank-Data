@@ -1,1 +1,124 @@
-<p>my-account works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finova Bank - Dashboard</title>
+    <link rel="stylesheet" href="my-account.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <header class="topbar">
+        <img src="Public/Finova Bank Logo Blanco.png" alt="Logo Finova" class="logo">
+        <span class="welcome">Welcome @Axel</span>
+        <img src="Public/axel.jpg" alt="User Profile" class="profile-pic">
+    </header>
+
+    <div class="container">
+        <!-- Menú lateral -->
+        <nav class="sidebar">
+            <button class="menu-item active">
+                <img src="Public/Finova Bank Logo.png" alt="My Account Icon"> My account
+            </button>
+            <button class="menu-item" onclick="window.location.href='manager-layout/total-clients'">
+                <img src="Public/customer.png" alt="Clients Icon"> Total clients
+            </button>
+            <button class="menu-item" onclick="window.location.href='manager-layout/transactions'">
+                <img src="Public/give-money.png" alt="Transactions Icon"> Transactions
+            </button>
+            <button class="menu-item" onclick="window.location.href='manager-layout/loan-request'">
+                <img src="Public/contract.png" alt="Loan Icon"> Loan request
+            </button>
+            <button class="menu-item" onclick="window.location.href='manager-layout/credit-approvals'">
+                <img src="Public/credit-card.png" alt="Credits Icon"> Credits Approvals
+            </button>
+            <button class="menu-item" onclick="window.location.href='manager-layout/alerts'">
+                <img src="Public/bell.png" alt="Alerts Icon"> Alerts
+            </button>
+            <button class="menu-item" onclick="window.location.href='manager-layout/reports'">
+                <img src="Public/bar-chart.png" alt="Reports Icon"> Reports
+            </button>
+            <button class="menu-item" onclick="window.location.href='login.html'">
+                <img src="Public/log-out.png" alt="Sign Out Icon"> Sign Out
+            </button>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="content">
+            <h2>My account</h2>
+            <div class="profile-section">
+                <img src="Public/axel.jpg" alt="Profile" class="profile-big">
+                <input type="file" id="uploadProfile" accept="image/*" hidden>
+                <label for="uploadProfile" class="edit-btn">✎</label>
+            </div>
+
+
+            <section class="form-section">
+                <h3>Personal Information</h3>
+                <div class="form-grid">
+                    <label>First Name <input type="text"></label>
+                    <label>Last Name <input type="text"></label>
+                    <label>Address <input type="text"></label>
+                    <label>Phone Number <input type="text"></label>
+                    <label>E-mail <input type="email"></label>
+                    <label>Password <input type="password"></label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h3>Account Security</h3>
+                <p>Two-Factor Authentication 
+                    <input type="checkbox" checked>
+                </p>
+                <p>Security Questions 
+                    <input type="checkbox" id="securityToggle" checked>
+                </p>
+                <input type="text" id="securityQuestion" placeholder="What color is my cat?">
+            </section>
+            
+            <button class="save-btn" id="saveBtn">Edit information</button>
+        </main>
+    </div>
+    <script>
+document.getElementById("uploadProfile").addEventListener("change", function(e){
+    const file = e.target.files[0];
+    if(file){
+        const reader = new FileReader();
+        reader.onload = function(event){
+            document.querySelector(".profile-big").src = event.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+        });
+    const securityToggle = document.getElementById("securityToggle");
+    const securityQuestion = document.getElementById("securityQuestion");
+    function toggleSecurityQuestion() {
+        if (securityToggle.checked) {
+            securityQuestion.style.display = "block";
+        } else {
+            securityQuestion.style.display = "none";
+        }
+    }
+    toggleSecurityQuestion();
+    securityToggle.addEventListener("change", toggleSecurityQuestion);    
+
+    document.getElementById("saveBtn").addEventListener("click", function() {
+        const inputs = document.querySelectorAll(".form-section .form-grid input");
+        inputs.forEach(input => {
+            if (input.value.trim() !== "") {
+                if (input.type === "password") {
+                    input.setAttribute("placeholder", "********");
+                } else {
+                    input.setAttribute("placeholder", input.value);
+                }
+                input.value = "";
+            }
+        });
+        alert("Información guardada correctamente ✅");
+    });
+    </script>
+
+<footer class="footer">
+</footer>
+</body>
+</html>

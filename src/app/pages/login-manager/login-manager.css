@@ -34,8 +34,8 @@ body {
     border-radius: 5px;
 }
 
-button {
-    width: 260px;
+.button {
+    width: 290px;
     padding: 10px;
     background: linear-gradient(to right, #0077b6, #00b4d8);
     color: white;
@@ -43,6 +43,8 @@ button {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 100px;
+    text-decoration: none;
 }
 
 button:hover {
