@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejecutive LogIn</title>
+  <link rel="stylesheet" href="css/Indexstyle.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <img src="img/Finova_Bank _Logo_Blanco.png" alt="Finova Bank Logo" class="logo-header">
+    <a href="#" class="back-button">Go back</a>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="main-container">
+    <!-- Columna izquierda -->
+    <div class="left-panel">
+      <img src="img/Finova_Bank_Formulario2.png" alt="Formulario Finova" class="form-image">
+    </div>
+
+    <!-- Columna derecha (formulario) -->
+    <div class="right-panel">
+      <div class="login-form">
+        <h2 class="welcome">Welcome Ejecutivo</h2>
+        <h3 class="login-title">Log in</h3>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="username">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-container">
+            <input type="password" id="password" placeholder="*******">
+            <button class="show-password" id="showPassword">SHOW</button>
+          </div>
+        </div>
+
+        <button class="get-started-btn" onclick="window.location.href='EjecutiveMain.html'">Get Started</button>
+
+        <div class="signup-link">
+          Don’t have an account? <a href="#">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar/ocultar contraseña
+    const showBtn = document.getElementById('showPassword');
+    const passField = document.getElementById('password');
+
+    showBtn.addEventListener('click', () => {
+      if (passField.type === "password") {
+        passField.type = "text";
+        showBtn.textContent = "HIDE";
+      } else {
+        passField.type = "password";
+        showBtn.textContent = "SHOW";
+      }
+    });
+  </script>
+</body>
+</html>

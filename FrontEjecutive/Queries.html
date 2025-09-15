@@ -1,0 +1,148 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Queries</title>
+        <link rel="stylesheet" href="css/Mainstyle.css">
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- HEADER FIJO -->
+        <header class="main-header">
+            <img src="img/Finova_Bank _Logo_Blanco.png" alt="Finova Bank Logo" class="logo-header">
+            <div class="user">
+                <span>EjecutiveUser</span>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar FIJO -->
+        <div class="sidebar">
+            <div class="menu">
+                <div class="menu-item">
+                    <a href="EjecutiveMain.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="OpenAccounts.html" class="menu-link">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Open Accounts</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="ActualizeRequest.html" class="menu-link">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Actualize Requests</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="CloseAccounts.html" class="menu-link">
+                        <i class="fas fa-user-times"></i>
+                        <span>Close Accounts</span>
+                    </a>
+                </div>
+                <div class="menu-item active">
+                    <a href="Queries.html" class="menu-link">
+                        <i class="fas fa-search"></i>
+                        <span>Queries</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>Aprobación de Créditos</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-users"></i>
+                    <span>Gestión de Clientes</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Reportes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content (con scroll) -->
+        <div class="main-content">
+            <div class="header">
+                <h1 class="page-title">Queries</h1>
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+            <div class="tab active"><a href="Queries.html" class="menu-link">Finance</a></div>
+            <div class="tab"><a href="Queries/Finance.html" class="menu-link">Info</a></div>
+            <div class="tab"><a href="Queries/AssociatedServices.html" class="menu-link">Associated Services</a></div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+            <div class="search-box">
+                <input type="text" placeholder="Num Account">
+                <input type="text" placeholder="Id Transaction">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Id Transaction</th>
+                    <th>Num Account</th>
+                    <th>Currency</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>0023-6958</td>
+                    <td>0036-8596-78025</td>
+                    <td>MXN</td>
+                </tr>
+                <tr>
+                    <td>2589-3114</td>
+                    <td>3488-9314-55485</td>
+                    <td>MXN</td>
+                </tr>
+                <tr>
+                    <td>8599-0030</td>
+                    <td>4122-2324-23123</td>
+                    <td>MXN</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            // Funcionalidad básica para las tareas
+            document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        this.parentElement.style.opacity = "0.5";
+                        this.parentElement.style.textDecoration = "line-through";
+                    } else {
+                        this.parentElement.style.opacity = "1";
+                        this.parentElement.style.textDecoration = "none";
+                    }
+                });
+            });
+            
+            // Funcionalidad para el menú
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        </script>
+    </body>
+    </html>
