@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-manager-layout',
-  standalone: true,
+  selector: 'app-credit-approvals',
   imports: [],
   templateUrl: './manager-layout.html',
   styleUrl: './manager-layout.css'
