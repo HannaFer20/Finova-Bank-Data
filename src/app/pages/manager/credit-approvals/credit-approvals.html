@@ -67,37 +67,37 @@
 <body>
   <!-- Barra superior -->
   <header class="topbar">
-    <img src="Public/Finova Bank Logo Blanco.png" alt="Logo Finova" class="logo">
+    <img src="img/Finova Bank Logo Blanco.png" alt="Logo Finova" class="logo">
     <span class="welcome">Welcome @Axel</span>
-    <img src="Public/axel.jpg" alt="User Profile" class="profile-pic">
+    <img src="img/axel.jpg" alt="User Profile" class="profile-pic">
   </header>
 
   <div class="container">
     <!-- Menú lateral -->
     <nav class="sidebar">
       <button class="menu-item" onclick="window.location.href='manager-layout/my-account'">
-        <img src="Public/Finova Bank.png" alt="My Account Icon"> My account
+        <img src="img/Finova Bank.png" alt="My Account Icon"> My account
       </button>
       <button class="menu-item" onclick="window.location.href='manager-layout/total-clients'">
-        <img src="Public/customer.png" alt="Clients Icon"> Total clients
+        <img src="icon/customer.png" alt="Clients Icon"> Total clients
       </button>
       <button class="menu-item" onclick="window.location.href='manager-layout/transactions'">
-        <img src="Public/give-money.png" alt="Transactions Icon"> Transactions
+        <img src="icon/give-money.png" alt="Transactions Icon"> Transactions
       </button>
       <button class="menu-item" onclick="window.location.href='manager-layout-loan-request'">
-        <img src="Public/contract.png" alt="Loan Icon"> Loan request
+        <img src="icon/contract.png" alt="Loan Icon"> Loan request
       </button>
       <button class="menu-item active">
-        <img src="Public/credit-card-active.png" alt="Credits Icon"> Credits Approvals
+        <img src="icon/credit-card-active.png" alt="Credits Icon"> Credits Approvals
       </button>
       <button class="menu-item" onclick="window.location.href='manager-layout/alerts'">
-        <img src="Public/bell.png" alt="Alerts Icon"> Alerts
+        <img src="icon/bell.png" alt="Alerts Icon"> Alerts
       </button>
       <button class="menu-item" onclick="window.location.href='manager-layout/reports'">
-        <img src="Public/bar-chart.png" alt="Reports Icon"> Reports
+        <img src="icon/bar-chart.png" alt="Reports Icon"> Reports
       </button>
       <button class="menu-item" onclick="window.location.href=''">
-        <img src="Public/log-out.png" alt="Sign Out Icon"> Sign Out
+        <img src="icon/log-out.png" alt="Sign Out Icon"> Sign Out
       </button>
     </nav>
 
@@ -156,6 +156,9 @@
       </div>
     </main>
   </div>
+  <div>
+      <router-outlet></router-outlet>
+   </div>
   <!-- Footer -->
 <footer class="footer">
 </footer>

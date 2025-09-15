@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-total-clients',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './total-clients.html',
   styleUrl: './total-clients.css'
 })
