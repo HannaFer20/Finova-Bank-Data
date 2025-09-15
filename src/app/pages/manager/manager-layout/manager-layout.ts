@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-credit-approvals',
-  imports: [],
+  selector: 'app-cliente-layout',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './manager-layout.html',
-  styleUrl: './manager-layout.css'
+  styleUrls: ['./manager-layout.css']
 })
 export class ManagerLayout {
-
+  
 }
