@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Routes } from '@angular/router';
 import { LoginManager } from './pages/login-manager/login-manager';
 import { ManagerLayout } from './pages/manager/manager-layout/manager-layout';
@@ -27,3 +28,8 @@ export const routes: Routes = [
     ]
   }
 ];
+=======
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [];
+>>>>>>> c694b103b9c64add5b434a3c6732650851cbf6d4
