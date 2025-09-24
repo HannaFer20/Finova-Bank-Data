@@ -19,6 +19,15 @@ import { Transfer } from './pages/client/transfer/transfer';
 import { TransferDetails } from './pages/client/transfer-details/transfer-details';
 import { Withdrawal } from './pages/client/withdrawal/withdrawal';
 import { WithdrawalDetails } from './pages/client/withdrawal-details/withdrawal-details';
+import { ClientLayout } from './pages/client/client-layout/client-layout';
+import { Index } from './pages/executive/index';
+import { ActualizeRequest } from './pages/executive/actualize-request/actualize-request';
+import { AssociatedServices } from './pages/executive/associated-services/associated-services';
+import { CloseAccounts } from './pages/executive/close-accounts/close-accounts';
+import { EjecutiveMain } from './pages/executive/ejecutive-main/ejecutive-main';
+import { Finance } from './pages/executive/finance/finance';
+import { OppenAccounts } from './pages/executive/oppen-accounts/oppen-accounts';
+import { Queries } from './pages/executive/queries/queries';
 
 export const routes: Routes = [
   { path: '', component: LoginManager },
@@ -40,7 +49,7 @@ export const routes: Routes = [
 
     {
     path: 'client-layout',
-    component: ManagerLayout,
+    component: ClientLayout,
     children: [
       { path: '', redirectTo: 'my-account', pathMatch: 'full' }, 
       { path: 'credit', component: Credit },
@@ -55,6 +64,22 @@ export const routes: Routes = [
       { path: 'transfer-details', component: TransferDetails },
       { path: 'withdrawal', component: Withdrawal },
       { path: 'withdrawal-details', component: WithdrawalDetails },
+    ]
+  },
+
+      {
+    path: 'index',
+    component: Index,
+    children: [
+      { path: '', redirectTo: 'ejecutive-main', pathMatch: 'full' }, 
+      { path: 'actualize-request', component: ActualizeRequest },
+      { path: 'associated-services', component: AssociatedServices },
+      { path: 'close-accounts', component: CloseAccounts },
+      { path: 'ejecutive-main', component: EjecutiveMain },
+      { path: 'finance', component: Finance },
+      { path: 'index', component: Index },
+      { path: 'oppen-accounts', component: OppenAccounts },
+      { path: 'queries', component: Queries },
     ]
   }
 ];
