@@ -1,0 +1,3 @@
+[submodule "ejecutivo"]
+	path = ejecutivo
+	url = https://github.com/TenienteDan521/ejecutivo.git
