@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>OpenAccounts</title>
+    <link rel="stylesheet" href="css/Openstyle.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER FIJO -->
+    <header class="main-header">
+        <img src="img/Finova_Bank _Logo_Blanco.png" alt="Finova Bank Logo" class="logo-header">
+        <div class="user">
+            <span>EjecutiveUser</span>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar FIJO -->
+    <div class="sidebar">
+        <div class="menu">
+            <div class="menu-item">
+                <a href="EjecutiveMain.html" class="menu-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="menu-item active">
+                <a href="OpenAccounts.html" class="menu-link">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Open Accounts</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="ActualizeRequest.html" class="menu-link">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Actualize Requests</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="CloseAccounts.html" class="menu-link">
+                    <i class="fas fa-user-times"></i>
+                    <span>Close Accounts</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="Queries.html" class="menu-link">
+                    <i class="fas fa-search"></i>
+                    <span>Queries</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>Aprobación de Créditos</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Gestión de Clientes</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>Reportes</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (con scroll) -->
+    <div class="main-content">
+        <div class="header">
+            <h1 class="page-title">Open Accounts</h1>
+        </div>
+        
+        <!-- Información sobre el proceso -->
+        <div class="account-form">
+            <h2 class="form-title">Proceso de Apertura de Cuentas</h2>
+            <p>Como ejecutivo bancario, usted es responsable de abrir diferentes tipos de cuentas para los clientes. Siga estos pasos:</p>
+            <ol style="margin-left: 20px; margin-top: 10px;">
+                <li>Verificar la identidad del cliente</li>
+                <li>Recopilar la documentación requerida</li>
+                <li>Explicar términos y condiciones</li>
+                <li>Activar la cuenta en el sistema</li>
+            </ol>
+        </div>
+        
+        <!-- Selección de tipo de cuenta -->
+        <div class="account-form">
+            <h2 class="form-title">Seleccione el Tipo de Cuenta</h2>
+            <div class="account-types">
+                <div class="account-type-card" onclick="selectAccountType(this, 'ahorros')">
+                    <div class="account-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="account-type-name">Cuenta de Ahorros</h3>
+                    <p class="account-type-desc">Para clientes que desean depositar dinero y obtener intereses</p>
+                </div>
+                
+                <div class="account-type-card" onclick="selectAccountType(this, 'corriente')">
+                    <div class="account-icon">
+                        <i class="fas fa-money-check-alt"></i>
+                    </div>
+                    <h3 class="account-type-name">Cuenta Corriente</h3>
+                    <p class="account-type-desc">Para transacciones comerciales y personales frecuentes</p>
+                </div>
+                
+                <div class="account-type-card" onclick="selectAccountType(this, 'plazo-fijo')">
+                    <div class="account-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="account-type-name">Cuenta a Plazo Fijo</h3>
+                    <p class="account-type-desc">Para inversiones con rendimientos garantizados</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formulario de datos del cliente -->
+        <div class="account-form">
+            <h2 class="form-title">Datos del Cliente</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Nombre completo</label>
+                    <input type="text" class="form-input" placeholder="Ingrese el nombre completo">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Identificación</label>
+                    <input type="text" class="form-input" placeholder="Número de identificación">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Género</label>
+                    <select class="form-select">
+                        <option value="">Seleccione...</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" class="form-input" placeholder="Número de contacto">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-input" placeholder="correo@ejemplo.com">
+                </div>
+            </div>
+            
+            <h3 class="form-title">Dirección</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Calle</label>
+                    <input type="text" class="form-input" placeholder="Nombre de la calle">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Número</label>
+                    <input type="text" class="form-input" placeholder="Número exterior">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Colonia</label>
+                    <input type="text" class="form-input" placeholder="Colonia o barrio">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Ciudad</label>
+                    <input type="text" class="form-input" placeholder="Ciudad">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Estado</label>
+                    <input type="text" class="form-input" placeholder="Estado o provincia">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Código Postal</label>
+                    <input type="text" class="form-input" placeholder="C.P.">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Documentación requerida -->
+        <div class="account-form">
+            <h2 class="form-title">Documentación Requerida</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox"> Identificación oficial (INE, pasaporte)
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox"> Comprobante de domicilio
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox"> RFC
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox"> Acta constitutiva (para cuentas empresariales)
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Subir documentos</label>
+                <input type="file" class="form-input" multiple>
+            </div>
+        </div>
+        
+        <!-- Configuración de la cuenta -->
+        <div class="account-form">
+            <h2 class="form-title">Configuración de la Cuenta</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Moneda</label>
+                    <select class="form-select">
+                        <option value="MXN">Peso Mexicano (MXN)</option>
+                        <option value="USD">Dólar Americano (USD)</option>
+                        <option value="EUR">Euro (EUR)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Límite de retiro diario</label>
+                    <input type="number" class="form-input" placeholder="Monto en MXN">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Tipo de tarjeta</label>
+                    <select class="form-select">
+                        <option value="">Sin tarjeta</option>
+                        <option value="debito">Tarjeta de Débito</option>
+                        <option value="credito">Tarjeta de Crédito</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Banca en línea</label>
+                    <select class="form-select">
+                        <option value="si">Activar</option>
+                        <option value="no">No activar</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Acciones del formulario -->
+        <div class="account-form">
+            <div class="form-actions">
+                <button class="btn btn-secondary">Cancelar</button>
+                <button class="btn btn-primary">Abrir Cuenta</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad para seleccionar tipo de cuenta
+        function selectAccountType(element, accountType) {
+            // Deseleccionar todos
+            document.querySelectorAll('.account-type-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Seleccionar el actual
+            element.classList.add('selected');
+            
+            // Aquí puedes agregar lógica adicional según el tipo de cuenta seleccionado
+            console.log('Tipo de cuenta seleccionado:', accountType);
+        }
+        
+        // Funcionalidad para el menú
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
