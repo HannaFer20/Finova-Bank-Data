@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferencia Interna - Finova Bank</title>
+    <link rel="stylesheet" href="css/TransferClient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER FIJO -->
+    <header class="main-header">
+        <img src="img/Finova_Bank _Logo_Blanco.png" alt="Finova Bank Logo" class="logo-header">
+        <div class="user">
+            <span>Welcome@Client</span>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Sidebar FIJO -->
+    <div class="sidebar">
+        <div class="menu">
+            <div class="menu-item active">
+                <a href="#.html" class="menu-link">
+                    <i class="fas fa-home"></i>
+                    <span>My Account</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#.html" class="menu-link">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Inquiry</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#.html" class="menu-link">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Withdrawal</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#.html" class="menu-link">
+                    <i class="fas fa-user-times"></i>
+                    <span>Payments</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#.html" class="menu-link">
+                    <i class="fas fa-search"></i>
+                    <span>Transfer</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>Credit</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Loan</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>Sign Out</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="main-content">
+        <div class="header">
+            <h2 class="page-title">Transfer to Finova Account</h2>
+            <button class="notification-btn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </button>
+        </div>
+
+        <!-- Tabs para cambiar entre tipos de transacción -->
+        <div class="transaction-tabs">
+            <div class="tab active" data-tab="transfer">Transfer</div>
+            <div class="tab" data-tab="deposit">Deposit</div>
+            <div class="tab" data-tab="withdrawal">Withdrawal</div>
+            <div class="tab" data-tab="payment">Payment</div>
+        </div>
+        
+        <!-- CONTENEDOR PRINCIPAL DE TRANSFERENCIA -->
+    <div id="transfer-tab" class="tab-content active">
+        <div class="transfer-container" >
+            <!-- FORMULARIO PRINCIPAL DE TRANSFERENCIA -->
+            <div class="transfer-card">
+                <div class="transfer-header">
+                    <div class="transfer-title">Transfer to a Finova Account</div>
+                    <div data-subtab="external" class="transfer-fee" >Same Bank</div>
+                </div>
+                
+                <form id="internal-transfer-form" class="transfer-form">
+                    <input type="hidden" id="transaction-type" name="transaction_type" value="transfer">
+                    
+                    <div class="form-group">
+                        <label>From Account</label>
+                        <div class="account-selector">
+                            <div class="account-option selected" data-account="4582">
+                                <div class="account-number">**** 4582</div>
+                                <div class="account-balance">$5,430.25</div>
+                            </div>
+                            <div class="account-option" data-account="7821">
+                                <div class="account-number">**** 7821</div>
+                                <div class="account-balance">$12,150.80</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="destination-account">Destination Account Number</label>
+                        <input type="text" id="destination-account" name="destination_account" class="form-control" placeholder="Enter account number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="recipient-name">Recipient Name</label>
+                        <input type="text" id="recipient-name" class="form-control" placeholder="Enter recipient name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <div class="amount-input">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="amount" name="amount" class="form-control" placeholder="0.00" min="0.01" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <input type="text" id="description" name="description" class="form-control" placeholder="Add a note about this transfer">
+                    </div>
+                    
+                    <div class="transaction-summary">
+                        <div class="summary-title">Transaction Summary</div>
+                        <div class="summary-item">
+                            <span>Transaction Type:</span>
+                            <span>Internal Transfer</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Fee:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total Amount:</span>
+                            <span id="transfer-total">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transfer-actions">
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-transfer">Transfer Now</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- PANEL DE INFORMACIÓN ADICIONAL -->
+            <div class="info-panel">
+                <div class="info-header">
+                    <div class="info-title">Quick Access</div>
+                </div>
+                
+                <div class="recent-contacts">
+                    <div class="contacts-title">Recent Transfers</div>
+                    <div class="contacts-list">
+                        <div class="contact-item">
+                            <div class="contact-avatar">MJ</div>
+                            <div class="contact-info">
+                                <div class="contact-name">Maria Johnson</div>
+                                <div class="contact-account">**** 6392</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-avatar">RS</div>
+                            <div class="contact-info">
+                                <div class="contact-name">Robert Smith</div>
+                                <div class="contact-account">**** 7814</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-avatar">AD</div>
+                            <div class="contact-info">
+                                <div class="contact-name">Alex Davis</div>
+                                <div class="contact-account">**** 4527</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-avatar">SJ</div>
+                            <div class="contact-info">
+                                <div class="contact-name">Sarah Johnson</div>
+                                <div class="contact-account">**** 8934</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-avatar">+</div>
+                            <div class="contact-info">
+                                <div class="contact-name">Add New Contact</div>
+                                <div class="contact-account">Save for future transfers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="transaction-summary">
+                    <div class="summary-title">Transfer Information</div>
+                    <div class="summary-item">
+                        <span>Processing Time:</span>
+                        <span>Instant</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Availability:</span>
+                        <span>24/7</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Limit per Transfer:</span>
+                        <span>$10,000</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Daily Limit:</span>
+                        <span>$50,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Transferencia Externa -->
+            <div id="external-subtab" class="tab-content">
+                <div class="transfer-card">
+                    <div class="transfer-header">
+                        <div class="transfer-title">Transfer to Other Bank</div>
+                        <div data-subtab="internal" class="transfer-fee" >External Bank</div>
+                    </div>
+                    
+                    <form id="external-transfer-form">
+                        <input type="hidden" id="transaction-type-ext" name="transaction_type" value="transfer">
+                        
+                        <div class="form-group">
+                            <label>From Account</label>
+                            <div class="account-selector">
+                                <div class="account-option selected" data-account="4582">
+                                    <div class="account-number">**** 4582</div>
+                                    <div class="account-balance">$5,430.25</div>
+                                </div>
+                                <div class="account-option" data-account="7821">
+                                    <div class="account-number">**** 7821</div>
+                                    <div class="account-balance">$12,150.80</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bank">Destination Bank</label>
+                            <select id="bank" name="destination_bank" class="form-control" required>
+                                <option value="">Select Bank</option>
+                                <option value="bank1">Global Trust Bank</option>
+                                <option value="bank2">National Commerce Bank</option>
+                                <option value="bank3">First Union Bank</option>
+                                <option value="bank4">City Savings Bank</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="destination-account-ext">Destination Account Number</label>
+                            <input type="text" id="destination-account-ext" name="destination_account" class="form-control" placeholder="Enter account number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="recipient-name-ext">Recipient Name</label>
+                            <input type="text" id="recipient-name-ext" class="form-control" placeholder="Enter recipient name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="routing">Routing Number (ABA)</label>
+                            <input type="text" id="routing" name="routing_number" class="form-control" placeholder="Enter routing number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="amount-ext">Amount</label>
+                            <div class="amount-input">
+                                <span class="currency-symbol">$</span>
+                                <input type="number" id="amount-ext" name="amount" class="form-control" placeholder="0.00" min="0.01" step="0.01" required>
+                            </div>
+                            <div class="transfer-fee">
+                                Transfer fee: $3.50 will be applied to this transaction
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description-ext">Description (Optional)</label>
+                            <input type="text" id="description-ext" name="description" class="form-control" placeholder="Add a note">
+                        </div>
+                        
+                        <div class="transaction-summary">
+                            <div class="summary-item">
+                                <span>Transaction Type:</span>
+                                <span>External Transfer</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Fee:</span>
+                                <span>$3.50</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Total:</span>
+                                <span id="external-transfer-total">$3.50</span>
+                            </div>
+                        </div>
+                        
+                        <div class="transfer-actions">
+                            <button type="button" class="btn btn-cancel">Cancel</button>
+                            <button type="submit" class="btn btn-transfer">Transfer Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    <!-- DEPÓSITO -->
+        <div id="deposit-tab" class="tab-content">
+            <div class="transfer-card">
+                <div class="transfer-header">
+                    <div class="transfer-title">Make a Deposit</div>
+                    <div class="transfer-type">Deposit</div>
+                </div>
+                
+                <form id="deposit-form">
+                    <input type="hidden" id="transaction-type-deposit" name="transaction_type" value="deposit">
+                    
+                    <div class="form-group">
+                        <label>To Account</label>
+                        <div class="account-selector">
+                            <div class="account-option selected" data-account="4582">
+                                <div class="account-number">**** 4582</div>
+                                <div class="account-balance">$5,430.25</div>
+                            </div>
+                            <div class="account-option" data-account="7821">
+                                <div class="account-number">**** 7821</div>
+                                <div class="account-balance">$12,150.80</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deposit-method">Deposit Method</label>
+                        <select id="deposit-method" name="deposit_method" class="form-control" required>
+                            <option value="">Select Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="check">Check</option>
+                            <option value="mobile">Mobile Deposit</option>
+                            <option value="transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deposit-amount">Amount</label>
+                        <div class="amount-input">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="deposit-amount" name="amount" class="form-control" placeholder="0.00" min="0.01" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deposit-description">Description (Optional)</label>
+                        <input type="text" id="deposit-description" name="description" class="form-control" placeholder="Add a note">
+                    </div>
+                    
+                    <div class="transaction-summary">
+                        <div class="summary-item">
+                            <span>Transaction Type:</span>
+                            <span>Deposit</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Fee:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total:</span>
+                            <span id="deposit-total">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transfer-actions">
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-transfer">Deposit Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- RETIRO -->
+        <div id="withdrawal-tab" class="tab-content">
+            <div class="transfer-card">
+                <div class="transfer-header">
+                    <div class="transfer-title">Make a Withdrawal</div>
+                    <div class="transfer-type">Withdrawal</div>
+                </div>
+                
+                <form id="withdrawal-form">
+                    <input type="hidden" id="transaction-type-withdrawal" name="transaction_type" value="withdrawal">
+                    
+                    <div class="form-group">
+                        <label>From Account</label>
+                        <div class="account-selector">
+                            <div class="account-option selected" data-account="4582">
+                                <div class="account-number">**** 4582</div>
+                                <div class="account-balance">$5,430.25</div>
+                            </div>
+                            <div class="account-option" data-account="7821">
+                                <div class="account-number">**** 7821</div>
+                                <div class="account-balance">$12,150.80</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="withdrawal-method">Withdrawal Method</label>
+                        <select id="withdrawal-method" name="withdrawal_method" class="form-control" required>
+                            <option value="">Select Method</option>
+                            <option value="atm">ATM</option>
+                            <option value="branch">Bank Branch</option>
+                            <option value="transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="withdrawal-amount">Amount</label>
+                        <div class="amount-input">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="withdrawal-amount" name="amount" class="form-control" placeholder="0.00" min="0.01" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="withdrawal-description">Description (Optional)</label>
+                        <input type="text" id="withdrawal-description" name="description" class="form-control" placeholder="Add a note">
+                    </div>
+                    
+                    <div class="transaction-summary">
+                        <div class="summary-item">
+                            <span>Transaction Type:</span>
+                            <span>Withdrawal</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Fee:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total:</span>
+                            <span id="withdrawal-total">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transfer-actions">
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-transfer">Withdraw Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- PAGO -->
+        <div id="payment-tab" class="tab-content">
+            <div class="transfer-card">
+                <div class="transfer-header">
+                    <div class="transfer-title">Make a Payment</div>
+                    <div class="transfer-type">Payment</div>
+                </div>
+                
+                <form id="payment-form">
+                    <input type="hidden" id="transaction-type-payment" name="transaction_type" value="payment">
+                    
+                    <div class="form-group">
+                        <label>From Account</label>
+                        <div class="account-selector">
+                            <div class="account-option selected" data-account="4582">
+                                <div class="account-number">**** 4582</div>
+                                <div class="account-balance">$5,430.25</div>
+                            </div>
+                            <div class="account-option" data-account="7821">
+                                <div class="account-number">**** 7821</div>
+                                <div class="account-balance">$12,150.80</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="payment-service">Service</label>
+                        <select id="payment-service" name="service" class="form-control" required>
+                            <option value="">Select Service</option>
+                            <option value="electricity">Electricity</option>
+                            <option value="water">Water</option>
+                            <option value="internet">Internet</option>
+                            <option value="phone">Phone</option>
+                            <option value="credit-card">Credit Card</option>
+                            <option value="loan">Loan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="invoice-number">Invoice Number</label>
+                        <input type="text" id="invoice-number" name="invoice_number" class="form-control" placeholder="Enter invoice number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="payment-amount">Amount</label>
+                        <div class="amount-input">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="payment-amount" name="amount" class="form-control" placeholder="0.00" min="0.01" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="payment-description">Description (Optional)</label>
+                        <input type="text" id="payment-description" name="description" class="form-control" placeholder="Add a note">
+                    </div>
+                    
+                    <div class="transaction-summary">
+                        <div class="summary-item">
+                            <span>Transaction Type:</span>
+                            <span>Payment</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Fee:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total:</span>
+                            <span id="payment-total">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transfer-actions">
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-transfer">Pay Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Account selection
+        document.querySelectorAll('.account-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parent = this.closest('.form-group');
+                parent.querySelectorAll('.account-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+        
+        // Menu item selection
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('internal-transfer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Transferencia interna procesada exitosamente');
+            // In a real application, you would process the transfer here
+        });
+        
+        // Calculate total amount
+        document.getElementById('amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            document.getElementById('transfer-total').textContent = '$' + amount.toFixed(2);
+        });
+        
+        // Contact selection
+        document.querySelectorAll('.contact-item').forEach(contact => {
+            contact.addEventListener('click', function() {
+                if (this.querySelector('.contact-avatar').textContent !== '+') {
+                    const name = this.querySelector('.contact-name').textContent;
+                    const account = this.querySelector('.contact-account').textContent;
+                    
+                    document.getElementById('recipient-name').value = name;
+                    document.getElementById('destination-account').value = account.replace('**** ', '');
+                    
+                    // Highlight selected contact
+                    document.querySelectorAll('.contact-item').forEach(item => {
+                        item.style.borderColor = '';
+                    });
+                    this.style.borderColor = 'var(--primary-color)';
+                } else {
+                    alert('Funcionalidad para agregar nuevo contacto');
+                }
+            });
+        });
+        
+        // Cancel button functionality
+        document.querySelector('.btn-cancel').addEventListener('click', function() {
+            if (confirm('¿Estás seguro de que deseas cancelar esta transferencia?')) {
+                document.getElementById('internal-transfer-form').reset();
+                document.getElementById('transfer-total').textContent = '$0.00';
+                
+                // Reset account selection
+                document.querySelectorAll('.account-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                document.querySelector('.account-option').classList.add('selected');
+                
+                // Reset contact selection
+                document.querySelectorAll('.contact-item').forEach(item => {
+                    item.style.borderColor = '';
+                });
+            }
+        });
+        const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Quitar clase activa de todas las pestañas
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Ocultar todo el contenido
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Mostrar solo el contenido seleccionado
+            const selected = tab.getAttribute('data-tab');
+            document.getElementById(`${selected}-tab`).classList.add('active');
+        });
+    });
+     // Account selection
+        document.querySelectorAll('.account-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parent = this.closest('.form-group');
+                parent.querySelectorAll('.account-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+        
+    // Main tabs functionality
+    document.querySelectorAll('.transaction-tabs .tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.transaction-tabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+            // Add active class to clicked tab
+            this.classList.add('active');
+                
+            // Show corresponding content
+            const tabId = this.getAttribute('data-tab') + '-tab';
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+        
+    // Transfer subtabs functionality
+    document.querySelectorAll('.transfer-tabs .tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+            const parent = this.closest('.transfer-tabs');
+            // Remove active class from all tabs and contents in this group
+            parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('#transfer-tab .tab-content').forEach(c => c.classList.remove('active'));
+                
+            // Add active class to clicked tab
+            this.classList.add('active');
+                
+            // Show corresponding content
+            const tabId = this.getAttribute('data-subtab') + '-subtab';
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+        
+    // Menu item selection
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+        
+        // Form submissions
+        document.getElementById('internal-transfer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Transferencia interna procesada exitosamente');
+            // In a real application, you would process the transfer here
+        });
+        
+        document.getElementById('external-transfer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Transferencia externa procesada exitosamente');
+            // In a real application, you would process the transfer here
+        });
+        
+        document.getElementById('deposit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Depósito procesado exitosamente');
+            // In a real application, you would process the deposit here
+        });
+        
+        document.getElementById('withdrawal-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Retiro procesado exitosamente');
+            // In a real application, you would process the withdrawal here
+        });
+        
+        document.getElementById('payment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pago procesado exitosamente');
+            // In a real application, you would process the payment here
+        });
+        
+        // Calculate totals for external transfers
+        document.getElementById('amount-ext').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            const fee = 3.50;
+            const total = amount + fee;
+            document.getElementById('external-transfer-total').textContent = '$' + total.toFixed(2);
+        });
+        
+        // Calculate totals for other transactions
+        document.getElementById('amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            document.getElementById('transfer-total').textContent = '$' + amount.toFixed(2);
+        });
+        
+        document.getElementById('deposit-amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            document.getElementById('deposit-total').textContent = '$' + amount.toFixed(2);
+        });
+        
+        document.getElementById('withdrawal-amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            document.getElementById('withdrawal-total').textContent = '$' + amount.toFixed(2);
+        });
+        
+        document.getElementById('payment-amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            document.getElementById('payment-total').textContent = '$' + amount.toFixed(2);
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+    // Referencias a los botones de cambio
+    const sameBankBtn = document.querySelector('[data-subtab="external"].transfer-fee');
+    const externalBankBtn = document.querySelector('[data-subtab="internal"].transfer-fee');
+    
+    // Referencias a las secciones
+    const internalSection = document.querySelector('#transfer-tab');
+    const externalSection = document.querySelector('#external-subtab');
+    
+    // Asegurar que al inicio solo la interna esté visible
+    internalSection.classList.add('active');
+    externalSection.classList.remove('active');
+    sameBankBtn.style.backgroundColor = "#fff9e6";
+    sameBankBtn.style.color = "#e67e22";
+    
+    // Función para activar un tab
+    function activateTab(target) {
+        if (target === 'external') {
+            // Mostrar la transferencia externa
+            internalSection.classList.remove('active');
+            externalSection.classList.add('active');
+            
+            // Estilos
+            sameBankBtn.style.backgroundColor = "";
+            sameBankBtn.style.color = "";
+            externalBankBtn.style.backgroundColor = "#fff9e6";
+            externalBankBtn.style.color = "e67e22";
+        } else if (target === 'internal') {
+            // Mostrar la transferencia interna
+            externalSection.classList.remove('active');
+            internalSection.classList.add('active');
+            
+            // Estilos
+            externalBankBtn.style.backgroundColor = "";
+            externalBankBtn.style.color = "";
+            sameBankBtn.style.backgroundColor = "#fff9e6";
+            sameBankBtn.style.color = "e67e22";
+        }
+    }
+    // Escuchas de clic
+    sameBankBtn.addEventListener('click', () => activateTab('external'));
+    externalBankBtn.addEventListener('click', () => activateTab('internal'));
+    });
+
+    // Funcionalidad para el menú
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Funcionalidad básica para las tareas
+    document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                this.parentElement.style.opacity = "0.5";
+                this.parentElement.style.textDecoration = "line-through";
+            } else {
+                this.parentElement.style.opacity = "1";
+                this.parentElement.style.textDecoration = "none";
+            }
+        });
+    });
+        
+    </script>
+</body>
+</html>
